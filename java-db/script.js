@@ -12,45 +12,45 @@ let javaState = JSON.parse(localStorage.getItem('java_master_state')) || { activ
 let dbState = JSON.parse(localStorage.getItem('db_master_state')) || { activeTab: 0, completed: {} };
 
 // ================= INIT & FETCH =================
-// ================= INIT & FETCH =================
 async function loadDataAndInit() {
     try {
         document.getElementById('headerTitle').innerText = "Loading Knowledge Base...";
         
-        // 1. CACHE BUSTING:
-        // We add ?t=${Date.now()} to URL to prevent browser from serving 
-        // an old or empty cached version of your JSON files.
+        // 1. Force Fresh Data (Cache Busting)
         const t = Date.now();
-
-        // UPDATED FETCH CALLS with Cache Busting
+        
         const [javaRes, dbRes, detailsRes] = await Promise.all([
             fetch(`data/java.json?t=${t}`),
             fetch(`data/db.json?t=${t}`),
             fetch(`data/details.json?t=${t}`)
         ]);
 
-        // 2. SAFETY CHECK:
-        // Ensure files were actually found (200 OK) before trying to parse
-        if (!javaRes.ok || !dbRes.ok || !detailsRes.ok) {
-            throw new Error(`HTTP Error: ${javaRes.status} / ${dbRes.status}`);
-        }
+        // 2. Debugging Helper Function
+        // This safely checks if the file is empty before crashing
+        const safeJsonParse = async (response, name) => {
+            const text = await response.text(); 
+            if (!text || text.trim() === "") {
+                throw new Error(`${name} is EMPTY (0 bytes). Re-upload or check GitHub.`);
+            }
+            try {
+                return JSON.parse(text);
+            } catch (e) {
+                throw new Error(`${name} has invalid JSON syntax.`);
+            }
+        };
 
-        JAVA_DATA = await javaRes.json();
-        DB_DATA = await dbRes.json();
-        TOPIC_DETAILS = await detailsRes.json();
+        JAVA_DATA = await safeJsonParse(javaRes, "java.json");
+        DB_DATA = await safeJsonParse(dbRes, "db.json");
+        TOPIC_DETAILS = await safeJsonParse(detailsRes, "details.json");
 
         initDashboard();
-        
+
     } catch (error) {
         console.error("Error loading data:", error);
-        document.getElementById('headerTitle').innerText = "Error Loading Data";
-        
-        // Helpful error message for the user
-        const msg = error.message.includes("JSON") 
-            ? "Invalid JSON format (Check commas/brackets)" 
-            : "Please ensure java.json and db.json exist";
-            
-        document.getElementById('headerSubtitle').innerText = msg;
+        document.getElementById('headerTitle').innerText = "Load Failed";
+        // Show the actual error on screen so you can see it
+        document.getElementById('headerSubtitle').innerText = error.message; 
+        document.getElementById('headerSubtitle').style.color = "#ff4444";
     }
 }
 

@@ -1,0 +1,288 @@
+[
+  {
+    "id": 0,
+    "title": "PHASE 0: The Foundation",
+    "subtitle": "How Java Actually Works",
+    "groups": [
+      {
+        "name": "Runtime Environment",
+        "topics": [
+          { "title": "JDK vs JRE vs JVM", "priority": "high", "note": "JDK = Tools, JRE = Libs, JVM = Engine." },
+          { "title": "JVM Architecture", "priority": "medium", "note": "Classloader, Execution Engine (Interpreter vs JIT), Bytecode structure." },
+          { "title": "Memory Management", "priority": "high", "note": "Stack (Methods/Primitives) vs Heap (Objects). Where 'new' allocates." },
+          { "title": "Garbage Collection", "priority": "medium", "note": "Minor (Young) vs Major (Old). Know G1GC & ZGC." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "title": "PHASE 1: Java Core",
+    "subtitle": "The Non-Negotiable Core",
+    "groups": [
+      {
+        "name": "Language Basics",
+        "topics": [
+          { "title": "OOP Pillars", "priority": "high", "note": "Polymorphism, Encapsulation, Inheritance, Abstraction." },
+          { "title": "Keywords", "priority": "high", "note": "static, final, this, super, synchronized, volatile, transient." },
+          { "title": "Object Contracts", "priority": "high", "note": "Overriding equals() & hashCode(). Crucial for HashMaps." }
+        ]
+      },
+      {
+        "name": "Collections Framework",
+        "topics": [
+          { "title": "Lists", "priority": "high", "note": "ArrayList (Fast access) vs LinkedList (Fast insert/delete)." },
+          { "title": "Maps", "priority": "high", "note": "HashMap internals (Hashing, Buckets, Collisions) vs TreeMap." },
+          { "title": "Sets", "priority": "medium", "note": "HashSet (Removing duplicates)." }
+        ]
+      },
+      {
+        "name": "Modern Java (17 & 21)",
+        "topics": [
+          { "title": "Records", "priority": "high", "note": "Concise data carriers. No more boilerplate DTOs." },
+          { "title": "Sealed Classes", "priority": "medium", "note": "Controlling inheritance hierarchy." },
+          { "title": "Pattern Matching", "priority": "medium", "note": "instanceof improvements and switch expressions." },
+          { "title": "Virtual Threads", "priority": "high", "note": "High-throughput concurrency (Project Loom)." },
+          { "title": "Type Inference", "priority": "low", "note": "'var' for local variables." }
+        ]
+      },
+      {
+        "name": "Concurrency & Functional",
+        "topics": [
+          { "title": "Multithreading", "priority": "high", "note": "Thread, Runnable, Callable. CompletableFuture for async chains." },
+          { "title": "Lambdas", "priority": "high", "note": "Predicate, Consumer, Supplier, Function interfaces." },
+          { "title": "Stream API", "priority": "high", "note": "filter(), map(), flatMap(), collect(). Processing data pipelines." },
+          { "title": "Optional", "priority": "medium", "note": "Handling nulls safely without NullPointerException." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "PHASE 2: The Data Layer",
+    "subtitle": "SQL & Hibernate",
+    "groups": [
+      {
+        "name": "Database",
+        "topics": [
+          { "title": "SQL Basics", "priority": "high", "note": "JOINS (Inner, Outer, Cross), Indexing, Normalization." },
+          { "title": "JDBC", "priority": "low", "note": "Connection, Statement, ResultSet. The underlying tech." }
+        ]
+      },
+      {
+        "name": "ORM (Hibernate/JPA)",
+        "topics": [
+          { "title": "Entity Mapping", "priority": "high", "note": "@Entity, @Table, @Id, @Column annotations." },
+          { "title": "Relationships", "priority": "high", "note": "@OneToMany, @ManyToOne, @ManyToMany." },
+          { "title": "Fetching Strategies", "priority": "high", "note": "Lazy vs Eager loading." },
+          { "title": "N+1 Problem", "priority": "high", "note": "Diagnosing performance killers. Fixing with JOIN FETCH." }
+        ]
+      },
+      {
+        "name": "Transactions",
+        "topics": [
+          { "title": "ACID", "priority": "medium", "note": "Atomicity, Consistency, Isolation, Durability." },
+          { "title": "Locking", "priority": "medium", "note": "Optimistic (@Version) vs Pessimistic (SELECT ... FOR UPDATE)." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "PHASE 3: Spring Core",
+    "subtitle": "The Framework Theory",
+    "groups": [
+      {
+        "name": "Container Fundamentals",
+        "topics": [
+          { "title": "Inversion of Control (IoC)", "priority": "high", "note": "Spring manages object creation, not you." },
+          { "title": "Dependency Injection (DI)", "priority": "high", "note": "Constructor Injection (Preferred) vs Field Injection (@Autowired - Avoid)." },
+          { "title": "Bean Scopes", "priority": "medium", "note": "Singleton (Default), Prototype, Request, Session." },
+          { "title": "Bean Lifecycle", "priority": "low", "note": "@PostConstruct, @PreDestroy hooks." },
+          { "title": "AOP", "priority": "medium", "note": "Aspect Oriented Programming. Logging/Security without code clutter." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "PHASE 4: Spring Boot Basics",
+    "subtitle": "The Annotation Dictionary",
+    "groups": [
+      {
+        "name": "Core Concepts",
+        "topics": [
+          { "title": "Starters", "priority": "medium", "note": "Dependency bundles (e.g., spring-boot-starter-web)." },
+          { "title": "Auto-Configuration", "priority": "high", "note": "How Spring 'guesses' your setup based on classpath." },
+          { "title": "Actuator", "priority": "medium", "note": "Health checks (/actuator/health) & Metrics." }
+        ]
+      },
+      {
+        "name": "Stereotypes",
+        "topics": [
+          { "title": "@Component vs @Service", "priority": "high", "note": "Generic bean vs Business logic." },
+          { "title": "@Repository", "priority": "high", "note": "DB access with exception translation." },
+          { "title": "@Controller", "priority": "high", "note": "Web MVC (returns Views)." }
+        ]
+      },
+      {
+        "name": "Configuration",
+        "topics": [
+          { "title": "@Configuration & @Bean", "priority": "high", "note": "Manual bean creation (essential for 3rd party libs)." },
+          { "title": "@Value & @ConfigurationProperties", "priority": "medium", "note": "Reading properties (${app.name}) and type-safe binding." },
+          { "title": "DI Annotations", "priority": "high", "note": "@Autowired, @Qualifier (Specific impl), @Primary (Default)." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "PHASE 5: Building REST APIs",
+    "subtitle": "The Web Layer",
+    "groups": [
+      {
+        "name": "Mapping",
+        "topics": [
+          { "title": "@RestController", "priority": "high", "note": "Implies @Controller + @ResponseBody (JSON response)." },
+          { "title": "HTTP Methods", "priority": "high", "note": "@GetMapping, @PostMapping, @PutMapping, @DeleteMapping." }
+        ]
+      },
+      {
+        "name": "Request Handling",
+        "topics": [
+          { "title": "Data Binding", "priority": "high", "note": "@RequestBody (JSON->Object), @PathVariable (/id), @RequestParam (?id=1)." },
+          { "title": "Response Handling", "priority": "medium", "note": "ResponseEntity<T> for controlling status codes (200, 201, 404, 500)." },
+          { "title": "DTO Pattern", "priority": "high", "note": "Never expose Entities directly. Use MapStruct/ModelMapper." }
+        ]
+      },
+      {
+        "name": "Safety",
+        "topics": [
+          { "title": "Global Exception Handling", "priority": "high", "note": "@ControllerAdvice + @ExceptionHandler." },
+          { "title": "Validation", "priority": "medium", "note": "@Valid, @NotNull, @Size, @Email." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "PHASE 6: Application Security",
+    "subtitle": "AuthN vs AuthZ",
+    "groups": [
+      {
+        "name": "Spring Security",
+        "topics": [
+          { "title": "Concepts", "priority": "high", "note": "Authentication (Who?) vs Authorization (What?)." },
+          { "title": "SecurityFilterChain", "priority": "high", "note": "The main interceptor for all requests." },
+          { "title": "UserDetailsService", "priority": "medium", "note": "Loading users from DB." },
+          { "title": "Password Hashing", "priority": "medium", "note": "BCrypt/SCrypt standard." }
+        ]
+      },
+      {
+        "name": "Modern Auth",
+        "topics": [
+          { "title": "JWT", "priority": "high", "note": "Stateless token authentication." },
+          { "title": "OAuth2 / OIDC", "priority": "high", "note": "'Login with Google' flows." },
+          { "title": "Web Security", "priority": "medium", "note": "CORS (Cross-Origin) & CSRF handling." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "PHASE 7: Microservices & Observability",
+    "subtitle": "Distributed Systems",
+    "groups": [
+      {
+        "name": "Communication & Resilience",
+        "topics": [
+          { "title": "Feign Client", "priority": "medium", "note": "Declarative REST client." },
+          { "title": "WebClient", "priority": "medium", "note": "Non-blocking calls." },
+          { "title": "Circuit Breaker", "priority": "high", "note": "Resilience4j. Handling failures gracefully." },
+          { "title": "Rate Limiting", "priority": "medium", "note": "Protecting services from overload." }
+        ]
+      },
+      {
+        "name": "Observability",
+        "topics": [
+          { "title": "Distributed Tracing", "priority": "high", "note": "Micrometer/OpenTelemetry (TraceId, SpanId)." },
+          { "title": "Structured Logging", "priority": "medium", "note": "MDC (Mapped Diagnostic Context)." },
+          { "title": "Log Aggregation", "priority": "low", "note": "ELK Stack (Elasticsearch, Logstash, Kibana)." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "PHASE 8: Advanced Data",
+    "subtitle": "Caching with Redis",
+    "groups": [
+      {
+        "name": "Redis Implementation",
+        "topics": [
+          { "title": "Basics", "priority": "medium", "note": "Key-Value store concepts & RedisTemplate." },
+          { "title": "Caching Annotations", "priority": "high", "note": "@Cacheable, @CacheEvict, @CachePut." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "PHASE 9: Messaging",
+    "subtitle": "Kafka Architecture",
+    "groups": [
+      {
+        "name": "Core Concepts",
+        "topics": [
+          { "title": "Architecture", "priority": "high", "note": "Producer, Consumer, Topic, Partition, Offset, Consumer Groups." },
+          { "title": "Spring Kafka", "priority": "medium", "note": "KafkaTemplate (Producer), @KafkaListener (Consumer)." },
+          { "title": "Reliability", "priority": "high", "note": "Dead Letter Queues (DLQ) & Retry mechanisms." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "PHASE 10: System Design",
+    "subtitle": "Architecture & Patterns",
+    "groups": [
+      {
+        "name": "Design Patterns",
+        "topics": [
+          { "title": "Creational", "priority": "medium", "note": "Singleton, Builder, Factory." },
+          { "title": "Structural", "priority": "medium", "note": "Adapter, Decorator, Facade." },
+          { "title": "Behavioral", "priority": "medium", "note": "Strategy, Observer." }
+        ]
+      },
+      {
+        "name": "Principles",
+        "topics": [
+          { "title": "SOLID", "priority": "high", "note": "S.O.L.I.D principles." },
+          { "title": "Clean/Hexagonal", "priority": "high", "note": "Separating Domain from Infrastructure." },
+          { "title": "Idempotency", "priority": "high", "note": "Ensuring safe retries for APIs." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "PHASE 11: Testing & DevOps",
+    "subtitle": "Delivery Pipeline",
+    "groups": [
+      {
+        "name": "Testing",
+        "topics": [
+          { "title": "Unit Testing", "priority": "high", "note": "JUnit 5, Mockito (@Mock, @InjectMocks)." },
+          { "title": "Integration Testing", "priority": "high", "note": "@SpringBootTest, TestContainers (Dockerized DBs)." }
+        ]
+      },
+      {
+        "name": "DevOps",
+        "topics": [
+          { "title": "Docker", "priority": "medium", "note": "Dockerfile, docker-compose." },
+          { "title": "CI/CD", "priority": "medium", "note": "Pipelines (GitHub Actions/Jenkins) -> Build -> Test -> Deploy." }
+        ]
+      }
+    ]
+  }
+]

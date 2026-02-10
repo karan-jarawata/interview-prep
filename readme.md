@@ -56,8 +56,9 @@ Add the Topic: Open the JSON file in the /data folder (e.g., roadmap.json or lld
 
 Add the Details: Open details.json in that same folder and add the content block using the exact topic title as the key.
 
-"type": "text" allows HTML (use <p>, <ul>, <b>).
+"type": "text" allows HTML.
 
 "type": "code" renders syntax-highlighted Java/SQL blocks.
+
 
 Happy Grinding.

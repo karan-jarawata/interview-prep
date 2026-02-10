@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "title": "PHASE 0: The Foundation",
+    "title": " 0: The Foundation",
     "subtitle": "How Java Actually Works",
     "groups": [
       {
@@ -25,7 +25,7 @@
   },
   {
     "id": 1,
-    "title": "PHASE 1: Java Core",
+    "title": " 1: Java Core",
     "subtitle": "The Non-Negotiable Core",
     "groups": [
       {
@@ -68,7 +68,7 @@
   },
   {
     "id": 2,
-    "title": "PHASE 2: The Data Layer",
+    "title": " 2: The Data Layer",
     "subtitle": "SQL & Hibernate",
     "groups": [
       {
@@ -98,7 +98,7 @@
   },
   {
     "id": 3,
-    "title": "PHASE 3: Spring Core",
+    "title": " 3: Spring Core",
     "subtitle": "The Framework Theory",
     "groups": [
       {
@@ -120,7 +120,7 @@
   },
   {
     "id": 4,
-    "title": "PHASE 4: Spring Boot Basics",
+    "title": " 4: Spring Boot Basics",
     "subtitle": "The Annotation Dictionary",
     "groups": [
       {
@@ -142,7 +142,7 @@
   },
   {
     "id": 5,
-    "title": "PHASE 5: Building REST APIs",
+    "title": " 5: Building REST APIs",
     "subtitle": "The Web Layer",
     "groups": [
       {
@@ -164,7 +164,7 @@
   },
   {
     "id": 6,
-    "title": "PHASE 6: Application Security",
+    "title": " 6: Application Security",
     "subtitle": "AuthN vs AuthZ",
     "groups": [
       {
@@ -186,7 +186,7 @@
   },
   {
     "id": 7,
-    "title": "PHASE 7: Microservices & Cloud",
+    "title": " 7: Microservices & Cloud",
     "subtitle": "Distributed Systems",
     "groups": [
       {
@@ -215,7 +215,7 @@
   },
   {
     "id": 8,
-    "title": "PHASE 8: Advanced Data (Redis)",
+    "title": " 8: Advanced Data (Redis)",
     "subtitle": "High Performance Caching",
     "groups": [
       {
@@ -244,7 +244,7 @@
   },
   {
     "id": 9,
-    "title": "PHASE 9: Messaging (Kafka)",
+    "title": " 9: Messaging (Kafka)",
     "subtitle": "Event Streaming Architecture",
     "groups": [
       {
@@ -273,7 +273,7 @@
   },
   {
     "id": 10,
-    "title": "PHASE 10: System Design",
+    "title": " 10: System Design",
     "subtitle": "Architecture & Patterns",
     "groups": [
       {
@@ -287,7 +287,7 @@
   },
   {
     "id": 11,
-    "title": "PHASE 11: Testing & DevOps",
+    "title": " 11: Testing & DevOps",
     "subtitle": "Delivery Pipeline",
     "groups": [
       {
@@ -315,3 +315,4 @@
     ]
   }
 ]
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karan's Engineering Roadmap</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117; /* GitHub Dark Dim */
+            color: #c9d1d9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 { margin-bottom: 40px; font-size: 2.5rem; color: #58a6ff; }
+        .container { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; }
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 40px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #58a6ff;
+            background: #1f242c;
+        }
+        .icon { font-size: 4rem; margin-bottom: 20px; }
+        .title { font-size: 1.5rem; font-weight: bold; margin-bottom: 10px; }
+        .desc { font-size: 0.9rem; color: #8b949e; }
+    </style>
+</head>
+<body>
+
+    <h1>Engineering Mastery</h1>
+
+    <div class="container">
+        <a href="./system-design/index.html" class="card">
+            <div class="icon">🏗️</div>
+            <div class="title">System Design</div>
+            <div class="desc">HLD, LLD, and Architecture Patterns</div>
+        </a>
+
+        <a href="./java-db/index.html" class="card">
+            <div class="icon">☕</div>
+            <div class="title">Java & DB</div>
+            <div class="desc">Core Java, Spring Boot, SQL & Internals</div>
+        </a>
+    </div>
+
+</body>
+</html>

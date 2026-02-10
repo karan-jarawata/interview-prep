@@ -12,28 +12,45 @@ let javaState = JSON.parse(localStorage.getItem('java_master_state')) || { activ
 let dbState = JSON.parse(localStorage.getItem('db_master_state')) || { activeTab: 0, completed: {} };
 
 // ================= INIT & FETCH =================
+// ================= INIT & FETCH =================
 async function loadDataAndInit() {
     try {
         document.getElementById('headerTitle').innerText = "Loading Knowledge Base...";
         
-        // UPDATED FETCH CALLS
+        // 1. CACHE BUSTING:
+        // We add ?t=${Date.now()} to URL to prevent browser from serving 
+        // an old or empty cached version of your JSON files.
+        const t = Date.now();
+
+        // UPDATED FETCH CALLS with Cache Busting
         const [javaRes, dbRes, detailsRes] = await Promise.all([
-            fetch('data/java.json'),
-            fetch('data/db.json'),
-            fetch('data/details.json')
+            fetch(`data/java.json?t=${t}`),
+            fetch(`data/db.json?t=${t}`),
+            fetch(`data/details.json?t=${t}`)
         ]);
+
+        // 2. SAFETY CHECK:
+        // Ensure files were actually found (200 OK) before trying to parse
+        if (!javaRes.ok || !dbRes.ok || !detailsRes.ok) {
+            throw new Error(`HTTP Error: ${javaRes.status} / ${dbRes.status}`);
+        }
 
         JAVA_DATA = await javaRes.json();
         DB_DATA = await dbRes.json();
         TOPIC_DETAILS = await detailsRes.json();
 
         initDashboard();
-      
-
+        
     } catch (error) {
         console.error("Error loading data:", error);
         document.getElementById('headerTitle').innerText = "Error Loading Data";
-        document.getElementById('headerSubtitle').innerText = "Please ensure java.json and db.json exist";
+        
+        // Helpful error message for the user
+        const msg = error.message.includes("JSON") 
+            ? "Invalid JSON format (Check commas/brackets)" 
+            : "Please ensure java.json and db.json exist";
+            
+        document.getElementById('headerSubtitle').innerText = msg;
     }
 }
 

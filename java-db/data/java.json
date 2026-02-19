@@ -17,6 +17,7 @@
         "name": "Advanced Internals",
         "topics": [
           { "title": "JIT & Optimization", "priority": "medium", "note": "HotSpot, Escape Analysis & Scalar Replacement." },
+          { "title": "Java Memory Model (JMM)", "priority": "high", "note": "Happens-before relationship, visibility, and instruction reordering." },
           { "title": "Troubleshooting", "priority": "high", "note": "Heap dumps (jmap), Thread dumps (jstack), VisualVM." },
           { "title": "Native Interface", "priority": "low", "note": "JNI & Native code basics." }
         ]
@@ -33,6 +34,7 @@
         "topics": [
           { "title": "OOP Pillars", "priority": "high", "note": "Polymorphism, Encapsulation, Composition over Inheritance." },
           { "title": "Object Contracts", "priority": "high", "note": "Overriding equals(), hashCode(), compareTo()." },
+          { "title": "ClassLoader Hierarchy", "priority": "medium", "note": "Bootstrap, Extension, Application classloaders & Custom Classloaders." },
           { "title": "Generics", "priority": "medium", "note": "Type erasure, Wildcards (<? extends T>)." },
           { "title": "Enums", "priority": "medium", "note": "Enums as full-fledged classes with methods." }
         ]
@@ -40,7 +42,7 @@
       {
         "name": "Collections & IO",
         "topics": [
-          { "title": "Collections Framework", "priority": "high", "note": "Lists, Maps, Sets & Internal working." },
+          { "title": "Collections Framework", "priority": "high", "note": "Lists, Maps, Sets & Internal working (HashMap collision handling)." },
           { "title": "Concurrent Collections", "priority": "medium", "note": "ConcurrentHashMap, CopyOnWriteArrayList." },
           { "title": "Java I/O & NIO", "priority": "medium", "note": "File handling, NIO.2, Buffers, Channels." },
           { "title": "Date & Time API", "priority": "medium", "note": "java.time (LocalDate, Instant, Duration)." }
@@ -59,7 +61,8 @@
         "name": "Concurrency & Functional",
         "topics": [
           { "title": "Multithreading Basics", "priority": "high", "note": "Thread lifecycle, Synchronization, Volatile." },
-          { "title": "Advanced Concurrency", "priority": "medium", "note": "ForkJoinPool, CompletableFuture, False Sharing." },
+          { "title": "CompletableFuture Deep Dive", "priority": "high", "note": "Async chaining, combining futures, exception handling." },
+          { "title": "Advanced Concurrency", "priority": "medium", "note": "ForkJoinPool, CountDownLatch, CyclicBarrier, False Sharing." },
           { "title": "Stream API", "priority": "high", "note": "Processing data pipelines (filter, map, collect)." },
           { "title": "Reactive Basics", "priority": "low", "note": "Project Reactor concepts (Mono/Flux)." }
         ]
@@ -75,6 +78,7 @@
         "name": "Database Fundamentals",
         "topics": [
           { "title": "SQL Basics", "priority": "high", "note": "JOINS, Indexing, Normalization." },
+          { "title": "HikariCP & Pooling", "priority": "high", "note": "Connection pool sizing, timeouts, and internal mechanics." },
           { "title": "JDBC Internals", "priority": "low", "note": "Connection, Statement, ResultSet." },
           { "title": "Migrations", "priority": "high", "note": "Flyway or Liquibase for schema versioning." }
         ]
@@ -83,6 +87,7 @@
         "name": "ORM (Hibernate/JPA)",
         "topics": [
           { "title": "Entity Mapping", "priority": "high", "note": "@Entity, Relationships (@OneToMany), Lifecycle." },
+          { "title": "Hibernate Internals", "priority": "high", "note": "Session Cache (L1), Dirty Checking, Persistence Context." },
           { "title": "Fetching & Performance", "priority": "high", "note": "Lazy vs Eager, N+1 Problem, 2nd Level Cache." },
           { "title": "Locking", "priority": "medium", "note": "Optimistic (@Version) vs Pessimistic Locking." }
         ]
@@ -106,13 +111,14 @@
         "topics": [
           { "title": "Inversion of Control (IoC)", "priority": "high", "note": "Spring manages object creation." },
           { "title": "Dependency Injection (DI)", "priority": "high", "note": "Constructor (Best) vs Field Injection." },
-          { "title": "Bean Scopes & Lifecycle", "priority": "medium", "note": "Singleton, Prototype, @PostConstruct, BeanPostProcessor." }
+          { "title": "Advanced Bean Lifecycle", "priority": "high", "note": "BeanPostProcessor, BeanFactoryPostProcessor, Initialization callbacks." },
+          { "title": "Bean Scopes", "priority": "medium", "note": "Singleton, Prototype, Request, Session." }
         ]
       },
       {
         "name": "Advanced Spring",
         "topics": [
-          { "title": "AOP", "priority": "medium", "note": "Aspect Oriented Programming, CGLIB vs JDK Proxies." },
+          { "title": "Spring AOP Internals", "priority": "high", "note": "Pointcuts, Advices, Weaving, CGLIB vs JDK Dynamic Proxies." },
           { "title": "@Transactional", "priority": "high", "note": "Propagation, Isolation, Rollback rules internals." }
         ]
       }
@@ -126,16 +132,18 @@
       {
         "name": "Core Concepts",
         "topics": [
-          { "title": "Auto-Configuration", "priority": "high", "note": "Startup lifecycle, Starters, Classpath scanning." },
+          { "title": "Spring vs Spring Boot", "priority": "high", "note": "Manual XML/config vs Opinionated Auto-configuration & Starters." },
+          { "title": "Auto-Configuration", "priority": "high", "note": "Startup lifecycle, @EnableAutoConfiguration, Classpath scanning." },
           { "title": "Configuration", "priority": "high", "note": "application.yml, Profiles (dev/prod), External Config." },
-          { "title": "Embedded Servers", "priority": "low", "note": "Tomcat vs Jetty vs Netty." }
+          { "title": "Embedded Servers", "priority": "low", "note": "Tomcat vs Jetty vs Netty mechanics." }
         ]
       },
       {
-        "name": "Stereotypes",
+        "name": "Stereotypes & Management",
         "topics": [
           { "title": "Components", "priority": "high", "note": "@Component, @Service, @Repository, @Controller." },
-          { "title": "Bean Definition", "priority": "high", "note": "@Configuration & @Bean." }
+          { "title": "Bean Definition", "priority": "high", "note": "@Configuration & @Bean." },
+          { "title": "Actuator & Metrics", "priority": "medium", "note": "Health checks, metrics exposure, and custom endpoints." }
         ]
       }
     ]
@@ -143,21 +151,30 @@
   {
     "id": 5,
     "title": " 5: Building REST APIs",
-    "subtitle": "The Web Layer",
+    "subtitle": "The Web Layer & MVC",
     "groups": [
+      {
+        "name": "Spring MVC Internals",
+        "topics": [
+          { "title": "Dispatcher Servlet", "priority": "high", "note": "Front Controller Pattern, Request Routing lifecycle." },
+          { "title": "Handler Mapping & Adapters", "priority": "medium", "note": "How Spring maps URLs to Controller methods." },
+          { "title": "View Resolver", "priority": "medium", "note": "Resolving logical view names to actual views (mostly legacy/SSR, but core to MVC)." },
+          { "title": "Filters vs Interceptors", "priority": "high", "note": "Servlet Filter vs HandlerInterceptor execution order and use cases." }
+        ]
+      },
       {
         "name": "API Design",
         "topics": [
           { "title": "@RestController", "priority": "high", "note": "Mappings, Methods, Status Codes." },
-          { "title": "Request Handling", "priority": "high", "note": "@RequestBody, @RequestParam, Pagination & Sorting." },
+          { "title": "Request Handling", "priority": "high", "note": "@RequestBody, @RequestParam, @PathVariable, Pagination & Sorting." },
           { "title": "DTO Pattern", "priority": "high", "note": "Entity vs DTO separation (MapStruct)." }
         ]
       },
       {
         "name": "Reliability",
         "topics": [
-          { "title": "Exception Handling", "priority": "high", "note": "Global handling with @ControllerAdvice." },
-          { "title": "Validation", "priority": "medium", "note": "@Valid, Custom validators." }
+          { "title": "Exception Handling", "priority": "high", "note": "Global handling with @ControllerAdvice and @ExceptionHandler." },
+          { "title": "Validation", "priority": "medium", "note": "Hibernate Validator (@Valid, @NotNull, Custom validators)." }
         ]
       }
     ]
@@ -170,16 +187,16 @@
       {
         "name": "Spring Security Core",
         "topics": [
-          { "title": "Architecture", "priority": "high", "note": "SecurityFilterChain, AuthenticationManager." },
+          { "title": "Architecture", "priority": "high", "note": "SecurityFilterChain, AuthenticationManager, UserDetailsService." },
           { "title": "Mechanisms", "priority": "medium", "note": "Password Hashing (BCrypt), CSRF, CORS." }
         ]
       },
       {
         "name": "Modern Auth",
         "topics": [
-          { "title": "JWT & Stateless", "priority": "high", "note": "Token-based auth vs Session-based." },
-          { "title": "OAuth2 / OIDC", "priority": "high", "note": "Social Login flows." },
-          { "title": "Advanced Security", "priority": "medium", "note": "Method-level security (@PreAuthorize)." }
+          { "title": "JWT & Stateless", "priority": "high", "note": "Token-based auth vs Session-based, Token verification filters." },
+          { "title": "OAuth2 / OIDC", "priority": "high", "note": "Social Login flows, Authorization Code grant." },
+          { "title": "Advanced Security", "priority": "medium", "note": "Method-level security (@PreAuthorize, @PostFilter)." }
         ]
       }
     ]
@@ -192,23 +209,24 @@
       {
         "name": "Spring Cloud",
         "topics": [
-          { "title": "Service Discovery", "priority": "medium", "note": "Eureka/Consul." },
-          { "title": "API Gateway", "priority": "high", "note": "Routing, Filtering." },
-          { "title": "Config Server", "priority": "medium", "note": "Centralized configuration." }
+          { "title": "Service Discovery", "priority": "medium", "note": "Eureka/Consul registry and resolution." },
+          { "title": "API Gateway", "priority": "high", "note": "Routing, Filtering, and edge security." },
+          { "title": "Config Server", "priority": "medium", "note": "Centralized external configuration." }
         ]
       },
       {
         "name": "Resilience & Patterns",
         "topics": [
-          { "title": "Circuit Breaker", "priority": "high", "note": "Resilience4j, Rate Limiting." },
-          { "title": "Distributed Patterns", "priority": "high", "note": "Saga Pattern, CAP Theorem, Idempotency." }
+          { "title": "Circuit Breaker", "priority": "high", "note": "Resilience4j, Bulkheading, Rate Limiting." },
+          { "title": "Distributed Patterns", "priority": "high", "note": "Saga Pattern, CAP Theorem, Idempotency." },
+          { "title": "Event-Driven Microservices", "priority": "high", "note": "Outbox Pattern, CQRS basics." }
         ]
       },
       {
         "name": "Observability",
         "topics": [
-          { "title": "Tracing & Metrics", "priority": "high", "note": "Micrometer, OpenTelemetry, Distributed Tracing." },
-          { "title": "Monitoring Stack", "priority": "medium", "note": "Prometheus, Grafana, ELK Stack." }
+          { "title": "Tracing & Metrics", "priority": "high", "note": "Micrometer, OpenTelemetry, Distributed Tracing (Trace ID/Span ID)." },
+          { "title": "Monitoring Stack", "priority": "medium", "note": "Prometheus, Grafana, ELK/EFK Stack." }
         ]
       }
     ]
@@ -236,7 +254,7 @@
       {
         "name": "Advanced Usage",
         "topics": [
-          { "title": "Distributed Locks", "priority": "high", "note": "Implementing locking with Redisson/Redis." },
+          { "title": "Distributed Locks", "priority": "high", "note": "Implementing locking with Redisson (Watchdog mechanism)." },
           { "title": "Pub/Sub", "priority": "medium", "note": "Message broadcasting basics." }
         ]
       }
@@ -251,14 +269,15 @@
         "name": "Core Architecture",
         "topics": [
           { "title": "Broker Fundamentals", "priority": "high", "note": "Topics, Partitions, Offsets, Replication Factor." },
-          { "title": "Zookeeper vs KRaft", "priority": "medium", "note": "Controller quorum and metadata management." }
+          { "title": "Kafka Internals", "priority": "high", "note": "Leader Election, In-Sync Replicas (ISR), Log Compaction, Zero Copy." },
+          { "title": "Zookeeper vs KRaft", "priority": "medium", "note": "Controller quorum and metadata management without ZK." }
         ]
       },
       {
         "name": "Producers & Consumers",
         "topics": [
-          { "title": "Producer Internals", "priority": "high", "note": "Acks (0, 1, all), Retries, Idempotence, Batching." },
-          { "title": "Consumer Groups", "priority": "high", "note": "Group ID, Rebalancing, Offset Commit strategies." },
+          { "title": "Producer Internals", "priority": "high", "note": "Acks (0, 1, all), Retries, Idempotence, Batching, Partitioners." },
+          { "title": "Consumer Groups", "priority": "high", "note": "Group ID, Rebalancing Protocols, Offset Commit strategies (Auto vs Manual)." },
           { "title": "Delivery Semantics", "priority": "high", "note": "At-most-once, At-least-once, Exactly-once." }
         ]
       },
@@ -280,7 +299,7 @@
         "name": "Design Patterns",
         "topics": [
           { "title": "GoF Patterns", "priority": "medium", "note": "Singleton, Factory, Builder, Strategy, Observer." },
-          { "title": "Architectural", "priority": "high", "note": "Clean/Hexagonal Architecture, SOLID." }
+          { "title": "Architectural Patterns", "priority": "high", "note": "Clean/Hexagonal Architecture, SOLID principles." }
         ]
       }
     ]
@@ -293,26 +312,25 @@
       {
         "name": "Build & Quality",
         "topics": [
-          { "title": "Build Tools", "priority": "medium", "note": "Maven/Gradle internals, Dependency management." },
+          { "title": "Build Tools", "priority": "medium", "note": "Maven/Gradle internals, Dependency tree management." },
           { "title": "Code Quality", "priority": "low", "note": "SonarQube, Static Analysis, Clean Code." }
         ]
       },
       {
         "name": "Testing",
         "topics": [
-          { "title": "Unit & Integration", "priority": "high", "note": "JUnit 5, Mockito, @SpringBootTest." },
-          { "title": "Advanced Testing", "priority": "medium", "note": "TestContainers, Parameterized Tests." }
+          { "title": "Unit & Integration", "priority": "high", "note": "JUnit 5, Mockito, @SpringBootTest context caching." },
+          { "title": "Advanced Testing", "priority": "medium", "note": "TestContainers (testing with real DBs/Kafka), Parameterized Tests." }
         ]
       },
       {
         "name": "DevOps & Production",
         "topics": [
-          { "title": "Containerization", "priority": "high", "note": "Docker, JVM tuning in containers." },
-          { "title": "Orchestration", "priority": "medium", "note": "Kubernetes basics." },
-          { "title": "Deployment", "priority": "medium", "note": "CI/CD Pipelines, Blue-Green Deployment." }
+          { "title": "Containerization", "priority": "high", "note": "Docker, Multi-stage builds, JVM tuning in containers (cgroups)." },
+          { "title": "Orchestration", "priority": "medium", "note": "Kubernetes basics (Pods, Deployments, Services)." },
+          { "title": "Deployment", "priority": "medium", "note": "CI/CD Pipelines, Blue-Green Deployment, Canary Releases." }
         ]
       }
     ]
   }
 ]
-

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case Intelligence — Build Guide</title>
+  <meta name="description" content="A hands-on build guide: implement AI-powered case intelligence in your app with an offline, open-source LLM (Ollama / Llama 3.1) — automating domain classification, summarization, tagging, and sentiment/urgency detection to reduce manual triage. Architecture, steps, diagrams, and Java code.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__head">
+        <button class="sidebar__toggle" id="collapseBtn" type="button" aria-label="Collapse sidebar" title="Collapse">«</button>
+        <div class="sidebar__mark" aria-hidden="true">CI</div>
+        <div class="sidebar__title">Case<br>Intelligence</div>
+        <div class="sidebar__badges">
+          <span class="badge">Ollama</span>
+          <span class="badge">Llama 3.1</span>
+        </div>
+      </div>
+      <nav class="sidebar__nav" id="nav"></nav>
+      <div class="sidebar__foot">
+        <b>Project guide.</b> Follow top-to-bottom to build it, or jump to any stage. Pairs with the <a href="../ai/index.html" style="color:var(--teal)">AI &amp; LLMs guide</a>.
+      </div>
+    </aside>
+
+    <div class="scrim" id="scrim"></div>
+
+    <main class="main">
+      <div class="content" id="content"></div>
+    </main>
+  </div>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+  <script src="diagrams.js"></script>
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+  <script src="../draw.js"></script>
+</body>
+</html>
